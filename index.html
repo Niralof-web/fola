@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adesola Folarin | Crypto Copywriter & Web3 Storyteller</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary: #4f46e5;
+        --primary-dark: #3730a3;
+        --secondary: #0ea5e9;
+        --dark: #111827;
+        --light: #f8fafc;
+        --gray: #64748b;
+        --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --crypto-gradient: linear-gradient(90deg, #8b5cf6, #3b82f6, #10b981);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      }
+
+      body {
+        background-color: #0f172a;
+        color: #e2e8f0;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Header & Navigation */
+      header {
+        padding: 2rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        background-color: rgba(15, 23, 42, 0.95);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        backdrop-filter: blur(10px);
+      }
+
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        background: var(--crypto-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .logo span {
+        color: #8b5cf6;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+      }
+
+      nav a {
+        color: #cbd5e1;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+        padding: 0.5rem 0;
+        position: relative;
+      }
+
+      nav a:hover {
+        color: #8b5cf6;
+      }
+
+      nav a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--crypto-gradient);
+        transition: width 0.3s;
+      }
+
+      nav a:hover::after {
+        width: 100%;
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: #cbd5e1;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      /* Hero Section */
+      .hero {
+        padding: 6rem 0 4rem;
+        text-align: center;
+      }
+
+      .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .profile-img-container {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto 2rem;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 4px solid transparent;
+        background: var(--crypto-gradient) border-box;
+        position: relative;
+        box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+      }
+
+      .profile-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        background-color: #1e293b;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #8b5cf6;
+        font-size: 5rem;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        background: var(--crypto-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #94a3b8;
+        margin-bottom: 2rem;
+      }
+
+      .tagline {
+        font-size: 1.2rem;
+        color: #cbd5e1;
+        max-width: 700px;
+        margin: 0 auto 3rem;
+      }
+
+      .contact-info {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #94a3b8;
+      }
+
+      .contact-item i {
+        color: #8b5cf6;
+      }
+
+      /* Sections */
+      section {
+        padding: 5rem 0;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 3rem;
+        text-align: center;
+        position: relative;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 4px;
+        background: var(--crypto-gradient);
+        border-radius: 2px;
+      }
+
+      /* About Section */
+      .about-content {
+        max-width: 800px;
+        margin: 0 auto;
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #cbd5e1;
+      }
+
+      /* Services Section */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .service-card {
+        background: rgba(30, 41, 59, 0.7);
+        border-radius: 12px;
+        padding: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        border-color: #8b5cf6;
+      }
+
+      .service-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: #8b5cf6;
+      }
+
+      .service-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+      }
+
+      .service-card p {
+        color: #94a3b8;
+      }
+
+      /* Portfolio Section */
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 2rem;
+      }
+
+      .portfolio-item {
+        background: rgba(30, 41, 59, 0.7);
+        border-radius: 12px;
+        padding: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .portfolio-category {
+        display: inline-block;
+        padding: 0.3rem 1rem;
+        background: var(--crypto-gradient);
+        color: white;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .portfolio-item h3 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+      }
+
+      .portfolio-content {
+        background: rgba(15, 23, 42, 0.8);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1rem;
+        font-family: "Courier New", monospace;
+        color: #cbd5e1;
+        border-left: 4px solid #8b5cf6;
+      }
+
+      /* Case Study */
+      .case-study {
+        background: rgba(30, 41, 59, 0.7);
+        border-radius: 12px;
+        padding: 2rem;
+        margin-top: 3rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .case-study h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        color: #8b5cf6;
+      }
+
+      .case-study-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+      }
+
+      .case-study-item h4 {
+        color: #94a3b8;
+        margin-bottom: 0.5rem;
+      }
+
+      /* Why Fit Section */
+      .fit-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .fit-item {
+        background: rgba(30, 41, 59, 0.7);
+        border-radius: 12px;
+        padding: 2rem;
+        border-left: 4px solid #8b5cf6;
+      }
+
+      .fit-item h3 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        color: #8b5cf6;
+      }
+
+      /* Contact Section */
+      .contact-section {
+        text-align: center;
+        background: rgba(15, 23, 42, 0.9);
+        border-radius: 20px;
+        padding: 4rem;
+        margin-top: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .contact-section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .contact-section p {
+        font-size: 1.1rem;
+        color: #94a3b8;
+        margin-bottom: 2rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .contact-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s;
+      }
+
+      .btn-primary {
+        background: var(--crypto-gradient);
+        color: white;
+      }
+
+      .btn-outline {
+        border: 2px solid #8b5cf6;
+        color: #8b5cf6;
+        background: transparent;
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
+      }
+
+      /* Footer */
+      footer {
+        padding: 3rem 0;
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: #94a3b8;
+      }
+
+      .footer-logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        background: var(--crypto-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .social-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: rgba(30, 41, 59, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #8b5cf6;
+        font-size: 1.2rem;
+        text-decoration: none;
+        transition: all 0.3s;
+      }
+
+      .social-icon:hover {
+        background: var(--crypto-gradient);
+        color: white;
+        transform: translateY(-3px);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 992px) {
+        .hero h1 {
+          font-size: 2.8rem;
+        }
+
+        .case-study-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        nav ul {
+          position: fixed;
+          top: 80px;
+          left: 0;
+          width: 100%;
+          background-color: rgba(15, 23, 42, 0.98);
+          flex-direction: column;
+          padding: 2rem;
+          gap: 1rem;
+          transform: translateY(-100%);
+          opacity: 0;
+          transition: all 0.3s;
+          backdrop-filter: blur(10px);
+          z-index: 99;
+        }
+
+        nav ul.active {
+          transform: translateY(0);
+          opacity: 1;
+        }
+
+        .hero h1 {
+          font-size: 2.2rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .contact-section {
+          padding: 3rem 1.5rem;
+        }
+
+        .case-study-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .hero {
+          padding: 4rem 0 2rem;
+        }
+
+        .hero h1 {
+          font-size: 1.8rem;
+        }
+
+        .hero h2 {
+          font-size: 1.2rem;
+        }
+
+        .contact-info {
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+        }
+
+        .services-grid,
+        .portfolio-grid,
+        .fit-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .btn {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container header-container">
+        <div class="logo">Adesola <span></span><span>Folarin</span></div>
+
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <nav>
+          <ul id="navMenu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#why-fit">Why I Fit</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="container hero-content">
+      <img src='your-photo.jpg' alt='Adesola Folarin' class='profile-img'>
+            <i class="fas fa-user"></i>
+          </div>
+        </div>
+
+        <h1>Adesola Folarin</h1>
+        <h2>Crypto Copywriter • Web3 Storyteller • Content Strategist</h2>
+
+        <p class="tagline">
+          I write clear, motivating copy that helps crypto products, trading
+          platforms, and Web3 teams convert users and build community.
+        </p>
+
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>jubrilfolarin8@gmail.com</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <span>+234 906 165 9271</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Lagos, Nigeria (Remote)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">About</h2>
+        <div class="about-content">
+          <p>
+            I write clear, motivating copy that helps crypto products, trading
+            platforms, and Web3 teams convert users and build community. My work
+            focuses on short-form social performance, explainer scripts, and
+            landing page copy geared toward traders and crypto natives. I
+            translate complex technical topics into human-first narratives that
+            drive action.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+      <div class="container">
+        <h2 class="section-title">Core Services</h2>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-play-circle"></i>
+            </div>
+            <h3>Short-form Social Scripts</h3>
+            <p>
+              TikTok, X, Reels content designed for maximum engagement and
+              conversion.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-ad"></i>
+            </div>
+            <h3>Performance Ad Copy</h3>
+            <p>
+              High-converting ad copy for Meta, Google, and crypto-native
+              platforms.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-file-alt"></i>
+            </div>
+            <h3>Landing Page & Onboarding Copy</h3>
+            <p>Compelling copy that guides users from interest to action.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-video"></i>
+            </div>
+            <h3>Explainer Scripts (YouTube)</h3>
+            <p>
+              Clear, engaging scripts that simplify complex crypto concepts.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-newspaper"></i>
+            </div>
+            <h3>Newsletter & Market Update Copy</h3>
+            <p>
+              Regular content that keeps your audience informed and engaged.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-bullhorn"></i>
+            </div>
+            <h3>Brand Voice & Messaging</h3>
+            <p>
+              Develop and maintain a consistent brand voice across all
+              platforms.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+      <div class="container">
+        <h2 class="section-title">Portfolio Samples</h2>
+        <div class="portfolio-grid">
+          <div class="portfolio-item">
+            <span class="portfolio-category">TikTok Script</span>
+            <h3>'Why Liquid Staking Matters (30s)'</h3>
+            <div class="portfolio-content">
+              <p>
+                <strong>Hook:</strong> "Want passive yield without selling
+                crypto? Here's how liquid staking actually works — in 30
+                seconds."
+              </p>
+            </div>
+          </div>
+
+          <div class="portfolio-item">
+            <span class="portfolio-category">X / Meta Performance Ad</span>
+            <h3>Token Launch</h3>
+            <div class="portfolio-content">
+              <p>
+                <strong>Headline A:</strong> "Trade smarter: new token, lower
+                fees — limited alpha access."
+              </p>
+            </div>
+          </div>
+
+          <div class="portfolio-item">
+            <span class="portfolio-category">Landing Page Hero</span>
+            <h3>Prop Trading Firm (excerpt)</h3>
+            <div class="portfolio-content">
+              <p>
+                <strong>Hero headline:</strong> "Trade better. Risk smarter. Win
+                consistently."
+              </p>
+            </div>
+          </div>
+
+          <div class="portfolio-item">
+            <span class="portfolio-category">Explainer</span>
+            <h3>'AMMs vs Order Books (short explainer)'</h3>
+            <div class="portfolio-content">
+              <p>
+                "AMMs automate pricing using pools — think of it as a vending
+                machine for crypto. Order books match buyers and sellers in real
+                time."
+              </p>
+            </div>
+          </div>
+
+          <div class="portfolio-item">
+            <span class="portfolio-category">Newsletter Sample</span>
+            <h3>'Weekly Market Snapshot'</h3>
+            <div class="portfolio-content">
+              <p>
+                <strong>Subject:</strong> "Weekly: 3 on-chain moves traders
+                should watch"
+              </p>
+            </div>
+          </div>
+
+          <div class="portfolio-item">
+            <span class="portfolio-category">YouTube Short</span>
+            <h3>'How to read a liquidity heatmap (45s)'</h3>
+            <div class="portfolio-content">
+              <p>
+                <strong>Hook:</strong> "Heatmap shows where traders are stacking
+                liquidity — here's how to read it in 3 steps..."
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case Study -->
+        <div class="case-study">
+          <h3>Case Study (Mock) — 'Short Ads for Beta Token'</h3>
+          <div class="case-study-grid">
+            <div class="case-study-item">
+              <h4>Objective</h4>
+              <p>Drive sign-ups during token launch.</p>
+            </div>
+            <div class="case-study-item">
+              <h4>Approach</h4>
+              <p>Short-form edits + influencer clip.</p>
+            </div>
+            <div class="case-study-item">
+              <h4>Result</h4>
+              <p>Mock CTR uplift.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why I Fit Section -->
+    <section id="why-fit">
+      <div class="container">
+        <h2 class="section-title">Why I Fit This Role</h2>
+        <div class="fit-grid">
+          <div class="fit-item">
+            <h3>Fast Creative Cycles</h3>
+            <p>
+              Ship multiple short edits and scripts weekly. Adapt quickly to
+              fast-paced crypto market trends and platform updates.
+            </p>
+          </div>
+
+          <div class="fit-item">
+            <h3>Crypto-Native Voice</h3>
+            <p>
+              Personal projects explain DeFi clearly. Understand trader
+              psychology, market dynamics, and technical concepts from the
+              inside.
+            </p>
+          </div>
+
+          <div class="fit-item">
+            <h3>Performance + Brand Balance</h3>
+            <p>
+              Write to convert while staying on-brand. Blend persuasive
+              calls-to-action with authentic brand storytelling.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="container">
+        <div class="contact-section">
+          <h2>Ready to Elevate Your Crypto Content?</h2>
+          <p>
+            Let's discuss how I can help your crypto project convert more users
+            and build a stronger community through compelling copy.
+          </p>
+
+          <div class="contact-info" style="margin-bottom: 2rem">
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>jubrilfolarin8@gmail.com</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <span>+234 906 165 9271</span>
+            </div>
+          </div>
+
+          <div class="contact-buttons">
+            <a href="mailto:jubrilfolarin8@gmail.com" class="btn btn-primary">
+              <i class="fas fa-paper-plane"></i> Send Email
+            </a>
+            <a href="tel:+2349061659271" class="btn btn-outline">
+              <i class="fas fa-phone"></i> Call Now
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-logo">Adesola Folarin</div>
+        <p>Crypto Copywriter • Web3 Storyteller • Content Strategist</p>
+
+        <div class="social-icons">
+          <a href="#" class="social-icon">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="social-icon">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="#" class="social-icon">
+            <i class="fab fa-telegram"></i>
+          </a>
+          <a href="#" class="social-icon">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+
+        <p>
+          &copy; <span id="currentYear"></span> Adesola Folarin. All rights
+          reserved.
+        </p>
+        
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const navMenu = document.getElementById("navMenu");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+        mobileMenuBtn.innerHTML = navMenu.classList.contains("active")
+          ? '<i class="fas fa-times"></i>'
+          : '<i class="fas fa-bars"></i>';
+      });
+
+      // Close mobile menu when clicking a link
+      document.querySelectorAll("nav a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navMenu.classList.remove("active");
+          mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        });
+      });
+
+      // Set current year in footer
+      document.getElementById("currentYear").textContent =
+        new Date().getFullYear();
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Instructions for adding your photo
+      console.log("To add your photo:");
+      console.log(
+        "1. Replace the <div class='profile-img'> element in the hero section with:"
+      );
+      console.log(
+        "<img src='your-photo.jpg' alt='Adesola Folarin' class='profile-img'>"
+      );
+      console.log("2. Make sure your photo is square-shaped for best results.");
+      console.log("3. You can also update social media links in the footer.");
+    </script>
+  </body>
+</html>
